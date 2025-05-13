@@ -1,12 +1,14 @@
 export class Product {
-  static SIZE_SMALL = { price: 100 };
-  static SIZE_BIG = { price: 200 };
+  static SIZE_SMALL = { price: 100, size: "Small" };
+  static SIZE_MEDIUM = { price: 130, size: "Medium" };
+  static SIZE_LARGE = { price: 150, size: "Large" };
 
-  static TOPPING_SAUCE = { price: 15 };
   static TOPPING_MAYO = { price: 20 };
+  static TOPPING_SAUCE = { price: 20 };
 
-  constructor(size) {
+  constructor(size, name = "Product") {
     this.size = size;
+    this.name = name;
     this.toppings = [];
   }
 
