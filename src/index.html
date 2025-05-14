@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./dist/main.css" />
   </head>
   <body class="p-5">
+
     <div class="container text-center">
       <div class="row align-items-start">
 
@@ -20,7 +21,16 @@
           </div>
           </div>
 
+
+
           <div class="col-9">
+            <!--Alert  -->
+                         
+<div id="alert" class="alert alert-warning alert-dismissible fade show d-none" role="alert">
+  Thank you for your order!
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+           
 
             <div id="container-burgers" class="container d-flex justify-content-between mb-4">
 
@@ -167,29 +177,29 @@
                   <div class="card-body row">
                     <h5 class="card-title mb-4 text-danger">CheeseBurger</h5>
   
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-start">
                       <h5 class="card-title text-warning">Size</h5>
                     <div class="form-check">
-                      <input value="small" class="form-check-input" type="radio" name="radioDefault" id="radioDefault1" checked>
+                      <input value="small" class="form-check-input" type="radio" name="radioDefault-cheeseBurger" id="radioDefault1" checked>
                       <label class="form-check-label" for="radioDefault1">
                       Small 100 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="medium" class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" >
+                      <input value="medium" class="form-check-input" type="radio" name="radioDefault-cheeseBurger" id="radioDefault2" >
                       <label class="form-check-label" for="radioDefault2">
                         Medium 130 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="large" class="form-check-input" type="radio" name="radioDefault" id="radioDefault3">
+                      <input value="large" class="form-check-input" type="radio" name="radioDefault-cheeseBurger" id="radioDefault3">
                       <label class="form-check-label" for="radioDefault2">
                         Large 150 UAH
                       </label>
                     </div>
                   </div>
   
-                  <div class="col-md-6">
+                  <div class="col-md-6 text-start">
                     <h5 class="card-title text-warning">Toppings</h5>
                     <div class="form-check form-switch">                 
                       <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" data-topping="toppingMayo-cheeseburger">
@@ -222,29 +232,29 @@
                   <div class="card-body row">
                     <h5 class="card-title mb-4 text-danger">HamBurger</h5>
   
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-start">
                       <h5 class="card-title text-warning">Size</h5>
                     <div class="form-check">
-                      <input value="small" class="form-check-input" type="radio" name="radioDefault" id="radioDefault4" checked>
+                      <input value="small" class="form-check-input" type="radio" name="radioDefault-hamBurger" id="radioDefault4" checked>
                       <label class="form-check-label" for="radioDefault1">
                       Small 100 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="medium" class="form-check-input" type="radio" name="radioDefault" id="radioDefault5" >
+                      <input value="medium" class="form-check-input" type="radio" name="radioDefault-hamBurger" id="radioDefault5" >
                       <label class="form-check-label" for="radioDefault2">
                         Medium 130 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="large" class="form-check-input" type="radio" name="radioDefault" id="radioDefault6">
+                      <input value="large" class="form-check-input" type="radio" name="radioDefault-hamBurger" id="radioDefault6">
                       <label class="form-check-label" for="radioDefault2">
                         Large 150 UAH
                       </label>
                     </div>
                   </div>
   
-                  <div class="col-md-6">
+                  <div class="col-md-6 text-start">
                     <h5 class="card-title text-warning">Toppings</h5>
                     <div class="form-check form-switch">                 
                       <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" data-topping="toppingMayo-hamBurger">
@@ -277,29 +287,29 @@
                   <div class="card-body row">
                     <h5 class="card-title mb-4 text-danger">Tasty Junior</h5>
   
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-start">
                       <h5 class="card-title text-warning">Size</h5>
                     <div class="form-check">
-                      <input value="small" class="form-check-input" type="radio" name="radioDefault" id="radioDefault7" checked>
+                      <input value="small" class="form-check-input" type="radio" name="radioDefault-tastyJunior" id="radioDefault7" checked>
                       <label class="form-check-label" for="radioDefault1">
                       Small 100 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="medium" class="form-check-input" type="radio" name="radioDefault" id="radioDefault8" >
+                      <input value="medium" class="form-check-input" type="radio" name="radioDefault-tastyJunior" id="radioDefault8" >
                       <label class="form-check-label" for="radioDefault2">
                         Medium 130 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="large" class="form-check-input" type="radio" name="radioDefault" id="radioDefault9">
+                      <input value="large" class="form-check-input" type="radio" name="radioDefault-tastyJunior" id="radioDefault9">
                       <label class="form-check-label" for="radioDefault2">
                         Large 150 UAH
                       </label>
                     </div>
                   </div>
   
-                  <div class="col-md-6">
+                  <div class="col-md-6 text-start">
                     <h5 class="card-title text-warning">Toppings</h5>
                     <div class="form-check form-switch">                 
                       <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" data-topping="toppingMayo-tastyJunior">
@@ -332,29 +342,29 @@
                   <div class="card-body row">
                     <h5 class="card-title mb-4 text-danger">Chicken Roll</h5>
   
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-start">
                       <h5 class="card-title text-warning">Size</h5>
                     <div class="form-check">
-                      <input value="small" class="form-check-input" type="radio" name="radioDefault" id="radioDefault10" checked>
+                      <input value="small" class="form-check-input" type="radio" name="radioDefault-chickenRoll" id="radioDefault10" checked>
                       <label class="form-check-label" for="radioDefault1">
                       Small 100 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="medium" class="form-check-input" type="radio" name="radioDefault" id="radioDefault11" >
+                      <input value="medium" class="form-check-input" type="radio" name="radioDefault-chickenRoll" id="radioDefault11" >
                       <label class="form-check-label" for="radioDefault2">
                         Medium 130 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="large" class="form-check-input" type="radio" name="radioDefault" id="radioDefault12">
+                      <input value="large" class="form-check-input" type="radio" name="radioDefault-chickenRoll" id="radioDefault12">
                       <label class="form-check-label" for="radioDefault2">
                         Large 150 UAH
                       </label>
                     </div>
                   </div>
   
-                  <div class="col-md-6">
+                  <div class="col-md-6 text-start">
                     <h5 class="card-title text-warning">Toppings</h5>
                     <div class="form-check form-switch">                 
                       <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" data-topping="toppingMayo-chickenRoll">
@@ -387,29 +397,29 @@
                   <div class="card-body row">
                     <h5 class="card-title mb-4 text-danger">McChicken</h5>
   
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-start">
                       <h5 class="card-title text-warning">Size</h5>
                     <div class="form-check">
-                      <input value="small" class="form-check-input" type="radio" name="radioDefault" id="radioDefault13" checked>
+                      <input value="small" class="form-check-input" type="radio" name="radioDefault-mcChicken" id="radioDefault13" checked>
                       <label class="form-check-label" for="radioDefault1">
                       Small 100 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="medium" class="form-check-input" type="radio" name="radioDefault" id="radioDefault14" >
+                      <input value="medium" class="form-check-input" type="radio" name="radioDefault-mcChicken" id="radioDefault14" >
                       <label class="form-check-label" for="radioDefault2">
                         Medium 130 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="large" class="form-check-input" type="radio" name="radioDefault" id="radioDefault15">
+                      <input value="large" class="form-check-input" type="radio" name="radioDefault-mcChicken" id="radioDefault15">
                       <label class="form-check-label" for="radioDefault2">
                         Large 150 UAH
                       </label>
                     </div>
                   </div>
   
-                  <div class="col-md-6">
+                  <div class="col-md-6 text-start">
                     <h5 class="card-title text-warning">Toppings</h5>
                     <div class="form-check form-switch">                 
                       <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" data-topping="toppingMayo-mcChicken">
@@ -442,29 +452,29 @@
                   <div class="card-body row">
                     <h5 class="card-title mb-4 text-danger">Chicken McNuggets</h5>
   
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-start">
                       <h5 class="card-title text-warning">Size</h5>
                     <div class="form-check">
-                      <input value="small" class="form-check-input" type="radio" name="radioDefault" id="radioDefault16" checked>
+                      <input value="small" class="form-check-input" type="radio" name="radioDefault-mcNuggets" id="radioDefault16" checked>
                       <label class="form-check-label" for="radioDefault1">
                       Small 100 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="medium" class="form-check-input" type="radio" name="radioDefault" id="radioDefault17" >
+                      <input value="medium" class="form-check-input" type="radio" name="radioDefault-mcNuggets" id="radioDefault17" >
                       <label class="form-check-label" for="radioDefault2">
                         Medium 130 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="large" class="form-check-input" type="radio" name="radioDefault" id="radioDefault18">
+                      <input value="large" class="form-check-input" type="radio" name="radioDefault-mcNuggets" id="radioDefault18">
                       <label class="form-check-label" for="radioDefault2">
                         Large 150 UAH
                       </label>
                     </div>
                   </div>
   
-                  <div class="col-md-6">
+                  <div class="col-md-6 text-start">
                     <h5 class="card-title text-warning">Toppings</h5>
                     <div class="form-check form-switch">                 
                       <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" data-topping="toppingMayo-mcNuggets">
@@ -497,29 +507,29 @@
                   <div class="card-body row">
                     <h5 class="card-title mb-4 text-danger">French Fries</h5>
   
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-start">
                       <h5 class="card-title text-warning">Size</h5>
                     <div class="form-check">
-                      <input value="small" class="form-check-input" type="radio" name="radioDefault" id="radioDefault19" checked>
+                      <input value="small" class="form-check-input" type="radio" name="radioDefault-frenchFries" id="radioDefault19" checked>
                       <label class="form-check-label" for="radioDefault1">
                       Small 100 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="medium" class="form-check-input" type="radio" name="radioDefault" id="radioDefault20" >
+                      <input value="medium" class="form-check-input" type="radio" name="radioDefault-frenchFries" id="radioDefault20" >
                       <label class="form-check-label" for="radioDefault2">
                         Medium 130 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="large" class="form-check-input" type="radio" name="radioDefault" id="radioDefault21">
+                      <input value="large" class="form-check-input" type="radio" name="radioDefault-frenchFries" id="radioDefault21">
                       <label class="form-check-label" for="radioDefault2">
                         Large 150 UAH
                       </label>
                     </div>
                   </div>
   
-                  <div class="col-md-6">
+                  <div class="col-md-6 text-start">
                     <h5 class="card-title text-warning">Toppings</h5>
                     <div class="form-check form-switch">                 
                       <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" data-topping="toppingMayo-frenchFries">
@@ -552,29 +562,29 @@
                   <div class="card-body row">
                     <h5 class="card-title mb-4 text-danger">Potato Dips</h5>
   
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-start">
                       <h5 class="card-title text-warning">Size</h5>
                     <div class="form-check">
-                      <input value="small" class="form-check-input" type="radio" name="radioDefault" id="radioDefault22" checked>
+                      <input value="small" class="form-check-input" type="radio" name="radioDefault-potatoDips" id="radioDefault22" checked>
                       <label class="form-check-label" for="radioDefault1">
                       Small 100 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="medium" class="form-check-input" type="radio" name="radioDefault" id="radioDefault23" >
+                      <input value="medium" class="form-check-input" type="radio" name="radioDefault-potatoDips" id="radioDefault23" >
                       <label class="form-check-label" for="radioDefault2">
                         Medium 130 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="large" class="form-check-input" type="radio" name="radioDefault" id="radioDefault24">
+                      <input value="large" class="form-check-input" type="radio" name="radioDefault-potatoDips" id="radioDefault24">
                       <label class="form-check-label" for="radioDefault2">
                         Large 150 UAH
                       </label>
                     </div>
                   </div>
   
-                  <div class="col-md-6">
+                  <div class="col-md-6 text-start">
                     <h5 class="card-title text-warning">Toppings</h5>
                     <div class="form-check form-switch">                 
                       <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" data-topping="toppingMayo-potatoDips">
@@ -607,29 +617,29 @@
                   <div class="card-body row">
                     <h5 class="card-title mb-4 text-danger">Rustic Potato</h5>
   
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-start">
                       <h5 class="card-title text-warning">Size</h5>
                     <div class="form-check">
-                      <input value="small" class="form-check-input" type="radio" name="radioDefault" id="radioDefault25" checked>
+                      <input value="small" class="form-check-input" type="radio" name="radioDefault-rusticPotato" id="radioDefault25" checked>
                       <label class="form-check-label" for="radioDefault1">
                       Small 100 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="medium" class="form-check-input" type="radio" name="radioDefault" id="radioDefault26" >
+                      <input value="medium" class="form-check-input" type="radio" name="radioDefault-rusticPotato" id="radioDefault26" >
                       <label class="form-check-label" for="radioDefault2">
                         Medium 130 UAH
                       </label>
                     </div>
                     <div class="form-check">
-                      <input value="large" class="form-check-input" type="radio" name="radioDefault" id="radioDefault27">
+                      <input value="large" class="form-check-input" type="radio" name="radioDefault-rusticPotato" id="radioDefault27">
                       <label class="form-check-label" for="radioDefault2">
                         Large 150 UAH
                       </label>
                     </div>
                   </div>
   
-                  <div class="col-md-6">
+                  <div class="col-md-6 text-start">
                     <h5 class="card-title text-warning">Toppings</h5>
                     <div class="form-check form-switch">                 
                       <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" data-topping="toppingMayo-rusticPotato">
@@ -665,15 +675,91 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-warning">Save and Fill Form</button>
+        <button type="button" class="btn btn-warning btnSaveModal" data-bs-dismiss="modal">Save and Fill Form</button>
       </div>
     </div>
   </div>
 </div>
 
 
+<!-- Form -->
+<div id="form" class="container card d-none">
+  
+<form class="px-4 py-3 " action="/signUp" method="get">
+   <h5 class="card-title mb-4 text-danger ">Product registration form</h5>
+  <div class="mb-3 text-start">
+  <label class="form-label " for="fullName">Full name:</label>
+  <input class="form-control border-danger" type="text" id="fullName" name="fullName" required />
+</div>
+
+<div class="mb-3 text-start">
+  <label class="form-label" for="city">Choose your city:</label>
+  <select class="form-select border-danger" id="city" name="city" required>
+    <option value="Dnipro">Dnipro</option>
+    <option value="Kyiv">Kyiv</option>
+    <option value="Lviv">Lviv</option>
+    <option value="Odessa">Odessa</option>
+  </select>
+</div>
+
+<div class="mb-3 text-start">
+  <label class="form-label" for="post">Choose your post:</label>
+  <select class="form-select border-danger" id="post" name="post" required>
+    <option value="Post_1">Post_1</option>
+    <option value="Post_2">Post_2</option>
+    <option value="Post_3">Post_3</option>
+    <option value="Post_4">Post_4</option>
+  </select>
+</div>
+
+  <div class="mb-3 text-start">
+    <p class="form-label">Select payment method:</p>
+    <div>
+      <input
+      class="form-check-input"
+        type="radio"
+        name="payment"
+        value="pre-payment"
+        id="pre-payment"
+        required
+      />
+      <label class="form-check-label" for="pre-payment">Pre-payment</label>
+    </div>
+
+    <div>
+      <input
+      class="form-check-input"
+        type="radio"
+        name="payment"
+        value="post-payment"
+        id="post-payment"
+        required
+      />
+      <label class="form-check-label" for="post-payment">Post-payment</label>
+    </div>
+  </div>
 
 
+
+  
+
+  <div class="mb-3 text-start">
+  <label class="form-label" for="comment">Enter your comment:</label>
+  <textarea class="form-control border-danger" id="comment" name="comment" rows="4" cols="30"> </textarea>
+</div>
+
+<div class="mb-3 text-start">
+  <p class="date-today form-label"></p>
+  </div>
+
+  <button  class="btn btn-warning " type="submit">Submit</button>
+</form>
+</div>
+
+<!-- Menu-orders -->
+<div id="orderList" class="row row-cols-1 row-cols-md-3 g-4 d-none">
+
+</div>
 
 
 

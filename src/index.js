@@ -32,10 +32,18 @@ const potatoDips = document.querySelector("#potatoDips");
 const rusticPotato = document.querySelector("#rusticPotato");
 
 const allBtnCancel = document.querySelectorAll(".btnCancel");
-
 const allBtnAdd = document.querySelectorAll(".btnAdd");
+const btnSaveModal = document.querySelector(".btnSaveModal");
+const form = document.querySelector("#form");
+const orderList = document.querySelector("#orderList");
 
 const orders = [];
+
+const alert = document.querySelector("#alert");
+
+function showAlert() {
+  alert.classList.remove("d-none");
+}
 
 menuAll.addEventListener("click", () => {
   showAllMenu();
@@ -174,8 +182,6 @@ allBtnAdd.forEach((btnAdd) => {
 
     orders.push(product);
 
-    console.log(product);
-
     renderModal();
   });
 });
@@ -191,16 +197,11 @@ function renderModal() {
           .map((t) => (t === Product.TOPPING_MAYO ? "Mayo" : "Sauce"))
           .join(", ") || "No toppings";
 
-      console.log(product.size);
-      if (!product.size) {
-        alert("Choose your size");
-        return;
-      }
-
       modalBody.innerHTML = `
     <div class="card">
       <div class="card-body">
         <h5 class="card-title text-danger"> ${product.name} </h5>
+        <img src="https://s7d1.scene7.com/is/image/mcdonalds/nav_BKFT_Muffin_Roll:category-panel-left-desktop"/>
                <p class="card-text"><strong>Size: </strong> ${
                  product.size.size
                }</p>
@@ -214,51 +215,97 @@ function renderModal() {
   });
 }
 
-{
-  /* <form action="/signUp" method="get">
-<h5 class="card-title text-danger">Purchase Form</h5>
-      <label class="form-label" for="fullName">Full name:</label>
-<input class="form-control" type="text" id="fullName" name="fullName" required />
+btnSaveModal.addEventListener("click", () => {
+  form.classList.remove("d-none");
+  hideProducts();
+});
 
-<label class="form-label mt-3" for="city">Choose your city:</label>
-<select class="form-select" id="city" name="city" required>
-<option value="Dnipro">Dnipro</option>
-<option value="Kyiv">Kyiv</option>
-<option value="Lviv">Lviv</option>
-<option value="Odessa">Odessa</option>
-</select>
+const today = new Date().toLocaleString("en", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric",
+});
 
-<label class="form-label mt-3" for="post">Choose your post:</label>
-<select class="form-select" id="post" name="post" required>
-<option value="Post_1">Post_1</option>
-<option value="Post_2">Post_2</option>
-<option value="Post_3">Post_3</option>
-<option value="Post_4">Post_4</option>
-</select>
+const dateToday = document.querySelector(".date-today");
+dateToday.textContent = `Date: ${today}`;
 
-<div>
-<p class = "mt-3">Select payment method:</p>
-<div>
-<input
-  type="radio"
-  name="payment"
-  value="pre-payment"
-  id="pre-payment"
-  required
-/>
-<label class="form-label " for="pre-payment">Pre-payment</label>
-</div>
-<div>
-<input
-  type="radio"
-  name="payment"
-  value="post-payment"
-  id="post-payment"
-  required
-/>
-<label class="form-label " for="post-payment">Post-payment</label>
-</div>
-</div>
+const orderKey = `Order_${today}`;
 
-</form> */
+form.addEventListener("submit", onFormSubmit);
+
+function onFormSubmit(event) {
+  event.preventDefault();
+
+  form.classList.add("d-none");
+  showAllMenu();
+  showAlert();
+
+  const formData = new FormData();
+
+  const values = {
+    fullName: formData.get("fullName"),
+    city: formData.get("city"),
+    post: formData.get("post"),
+    payment: formData.get("payment"),
+    date: today,
+    comment: formData.get("comment"),
+
+    products: orders.map((product) => ({
+      name: product.name,
+      size: product.size.size,
+      price: product.calculatePrice(),
+    })),
+  };
+
+  localStorage.setItem(orderKey, JSON.stringify(values));
+
+  form.reset();
+  orders.length = 0;
+}
+
+menuOrders.addEventListener("click", makeListOfOrders);
+
+function makeListOfOrders() {
+  hideMenu();
+  orderList.classList.remove("d-none");
+  orderList.innerHTML = ``;
+
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (!key.startsWith("Order_")) continue;
+
+    const orderData = JSON.parse(localStorage.getItem(key));
+    orderList.innerHTML += `  <div class="col">
+    <div class="card h-100 border-danger">
+          <div class="card-body">
+        <h5 class="card-title">${orderData.date}</h5>
+       <p class="card-text">
+  ${orderData.products
+    .map(
+      (product) =>
+        `Product: ${product.name}<br>Size: ${product.size}<br>Price: ${product.price} UAH`
+    )
+    .join("<hr>")}
+</p>
+       <button class="btn btn-warning btnMoreInfoOrder" type="button">More info...</button>
+  <button class="btn btn-danger btnDeleteOrder" type="button">Delete</button>
+      </div>
+    </div>
+  </div>`;
+
+    const btnMoreInfoOrder = document.querySelector(".btnMoreInfoOrder");
+    const btnDeleteOrder = document.querySelector(".btnDeleteOrder");
+
+    btnMoreInfoOrder.addEventListener("click", () => {
+      console.log("hello");
+    });
+
+    btnDeleteOrder.addEventListener("click", () => {
+      localStorage.removeItem(key);
+      makeListOfOrders();
+    });
+  }
 }
