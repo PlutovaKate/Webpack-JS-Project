@@ -34,9 +34,12 @@ const rusticPotato = document.querySelector("#rusticPotato");
 const allBtnCancel = document.querySelectorAll(".btnCancel");
 const allBtnAdd = document.querySelectorAll(".btnAdd");
 const btnSaveModal = document.querySelector(".btnSaveModal");
+const formContainer = document.querySelector("#form-container");
 const form = document.querySelector("#form");
 const orderList = document.querySelector("#orderList");
 
+console.log(form);
+console.log(form instanceof HTMLFormElement);
 const orders = [];
 
 const alert = document.querySelector("#alert");
@@ -45,9 +48,14 @@ function showAlert() {
   alert.classList.remove("d-none");
 }
 
+function hideOrderList() {
+  orderList.classList.add("d-none");
+}
+
 menuAll.addEventListener("click", () => {
   showAllMenu();
   hideProducts();
+  hideOrderList();
 });
 
 function showAllMenu() {
@@ -62,6 +70,7 @@ menuBurgers.addEventListener("click", () => {
   containerPotato.classList.add("d-none");
 
   hideProducts();
+  hideOrderList();
 });
 
 menuChicken.addEventListener("click", () => {
@@ -70,6 +79,7 @@ menuChicken.addEventListener("click", () => {
   containerPotato.classList.add("d-none");
 
   hideProducts();
+  hideOrderList();
 });
 
 menuPotato.addEventListener("click", () => {
@@ -78,6 +88,7 @@ menuPotato.addEventListener("click", () => {
   containerBurgers.classList.add("d-none");
 
   hideProducts();
+  hideOrderList();
 });
 
 function hideMenu() {
@@ -216,7 +227,7 @@ function renderModal() {
 }
 
 btnSaveModal.addEventListener("click", () => {
-  form.classList.remove("d-none");
+  formContainer.classList.remove("d-none");
   hideProducts();
 });
 
@@ -243,7 +254,7 @@ function onFormSubmit(event) {
   showAllMenu();
   showAlert();
 
-  const formData = new FormData();
+  const formData = new FormData(form);
 
   const values = {
     fullName: formData.get("fullName"),
@@ -273,39 +284,70 @@ function makeListOfOrders() {
   orderList.classList.remove("d-none");
   orderList.innerHTML = ``;
 
+  const orderButtons = [];
+
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     if (!key.startsWith("Order_")) continue;
 
     const orderData = JSON.parse(localStorage.getItem(key));
-    orderList.innerHTML += `  <div class="col">
-    <div class="card h-100 border-danger">
-          <div class="card-body">
-        <h5 class="card-title">${orderData.date}</h5>
-       <p class="card-text">
-  ${orderData.products
-    .map(
-      (product) =>
-        `Product: ${product.name}<br>Size: ${product.size}<br>Price: ${product.price} UAH`
-    )
-    .join("<hr>")}
-</p>
-       <button class="btn btn-warning btnMoreInfoOrder" type="button">More info...</button>
-  <button class="btn btn-danger btnDeleteOrder" type="button">Delete</button>
+    const orderIndex = i;
+
+    orderList.innerHTML += `
+    <div class="col">
+      <div class="card h-100 border-danger">
+        <div class="card-body">
+          <h5 class="card-title">${orderData.date}</h5>
+          <p class="card-text short-info">
+            ${orderData.products
+              .map(
+                (product) =>
+                  `Product: ${product.name}<br>Size: ${product.size}<br>Price: ${product.price} UAH`
+              )
+              .join("<hr>")}
+          </p>
+  
+          <div class="more-info d-none mt-2">
+            <p><strong>Full name:</strong> ${orderData.fullName}</p>
+            <p><strong>City:</strong> ${orderData.city}</p>
+            <p><strong>Post:</strong> ${orderData.post}</p>
+            <p><strong>Payment:</strong> ${orderData.payment}</p>
+            <p><strong>Comment:</strong> ${
+              orderData.comment || "No comment"
+            }</p>
+          </div>
+  
+          <button class="btn btn-warning btnMoreInfoOrder" data-order-index="${orderIndex}">More info...</button>
+          <button class="btn btn-danger btnDeleteOrder" data-key="${key}">Delete</button>
+        </div>
       </div>
-    </div>
-  </div>`;
+    </div>`;
 
-    const btnMoreInfoOrder = document.querySelector(".btnMoreInfoOrder");
-    const btnDeleteOrder = document.querySelector(".btnDeleteOrder");
+    orderButtons.push({ key, orderData, index: orderIndex });
+  }
 
-    btnMoreInfoOrder.addEventListener("click", () => {
-      console.log("hello");
+  const AllBtnMoreInfoOrder = document.querySelectorAll(".btnMoreInfoOrder");
+
+  AllBtnMoreInfoOrder.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".card");
+      const moreInfoBlock = card.querySelector(".more-info");
+
+      moreInfoBlock.classList.toggle("d-none");
+
+      btn.textContent = moreInfoBlock.classList.contains("d-none")
+        ? "More info..."
+        : "Hide info";
     });
+  });
 
-    btnDeleteOrder.addEventListener("click", () => {
+  const allBtnDeleteOrder = document.querySelectorAll(".btnDeleteOrder");
+
+  allBtnDeleteOrder.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.key;
       localStorage.removeItem(key);
       makeListOfOrders();
     });
-  }
+  });
 }
