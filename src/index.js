@@ -38,8 +38,6 @@ const formContainer = document.querySelector("#form-container");
 const form = document.querySelector("#form");
 const orderList = document.querySelector("#orderList");
 
-console.log(form);
-console.log(form instanceof HTMLFormElement);
 const orders = [];
 
 const alert = document.querySelector("#alert");
